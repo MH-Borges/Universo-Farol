@@ -7,7 +7,7 @@
     text-decoration: none !important;
 }
 h1,h2,h3,h4,h5,h6,p,span,a{
-    font-family: 'Maven Pro', sans-serif;
+    font-family: $main-font;
 }
 .hide{ display: none; }
 
@@ -141,7 +141,7 @@ body{
     }
     .wrap{
         width: 100%;
-        height: 350vh;
+        height: 300vh;
         background: linear-gradient(180deg, #171227 0%, #221A3D 33.33%, #262F99 66.67%, #3E5DCE 100%);
         .backgrond{
             mix-blend-mode: color-dodge;
@@ -337,13 +337,11 @@ body{
                     transform: translate(-50%, -50%);
                     width: 27vw;
                     height: 35vh;
-                    overflow: hidden;
                     transition: all 300ms ease-in-out;
-                    z-index: -1;
-                    opacity: 0;
                     display: flex;
                     align-items: center;
                     justify-content: center;
+                    z-index: 1;
                     a{
                         display: flex;
                         align-items: center;
@@ -356,7 +354,6 @@ body{
                             transition: all 300ms ease-in-out;
                         }
                     }
-                    
                 }
                 .active {
                     opacity: 1;
@@ -395,20 +392,26 @@ body{
                     left: 50%;
                     transform: translate(-50%, -50%);
                     width: 100%;
+                    height: 1vh;
                     z-index: 100;
                     display: flex;
                     align-items: center;
                     justify-content: center;
+                    z-index: 10;
                     .button {
                         cursor: pointer;
                         position: relative;
                         transition: all 300ms ease-in-out;
                         padding-right: 19vw;
-                        height: 100%;
+                        height: 20vh;
                         svg{
+                            margin-top: 50%;
                             opacity: 0.75;
                             width: 5vw;
                             transform: rotate(90deg);
+                            path{
+                                fill: $White;
+                            }
                             &:hover{
                                 opacity: 1;
                             }
@@ -431,11 +434,11 @@ body{
             button{
                 color: $White;
                 font-weight: 400;
-                font-size: 1vw;
+                font-size: 1.2vw;
                 background-color: $BlackLight;
                 box-shadow: 0px 5px 5px rgba(19, 15, 32, 0.5);
                 border-radius: 1vw;
-                padding: 1vh 1vw;
+                padding: 1.5vh 1.5vw;
                 z-index: 1;
                 border: 0;
                 transition: all 0.3s ease-in-out;
@@ -448,17 +451,166 @@ body{
         .duvidas{
             position: relative;
             width: 100%;
-            height: 150vh;
-            .img2{
-                height:50vh;
-                margin-top: 100vh;
-                transform: matrix(1, 0, 0, -1, 0, 0);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            h3{
+                color: $White;
+                font-family: 'Amatic SC', cursive;
+                font-weight: 700;
+                font-size: 3.6vw;
+                height: auto;
+                width: 25%;
+                text-align: center;
+                margin-top: 8vh;
+                position: relative;
+                &::before{
+                    content: '';
+                    display: block;
+                    width: 100%;
+                    height: 0.5vh;
+                    position: absolute;
+                    background: $RedLight;
+                    transform: skew(-50deg);
+                    top: 50%; 
+                    left: -100%;
+                    opacity: 0.5;
+                }
+                &::after{
+                    content: '';
+                    display: block;
+                    width: 100%;
+                    height: 0.5vh;
+                    position: absolute;
+                    background: $RedLight;
+                    transform: skew(-50deg);
+                    top: 50%; 
+                    right: -100%;
+                    opacity: 0.5;
+                }
             }
+            .accordion{
+                width: 75%;
+                height: 38vh;
+                z-index: 1;
+                margin-top: 5vh;
+                .card{
+                    padding: 1vw;
+                    padding-bottom: 0;
+                    background: none;
+                    border: none;
+                    button{
+                        background:none;
+                        position: relative;
+                        display: flex;
+                        align-items: center;
+                        padding: 1vh 1.5vw;
+                        border-radius: 2vw;
+                        z-index: 2;
+                        border: solid $Red 2px;
+                        color: $White;
+                        font-weight: 700;
+                        min-height: 9vh;
+                        font-size: 1.1vw;
+                        &::before{
+                            content: '';
+                            display: block;
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            background-color: $White;
+                            opacity: 0.15;
+                            width: 100%;
+                            height: 100%;
+                            border-radius: 2vw;
+                            z-index: -1;
+                        }
+                    }
+                    p{
+                        padding: 1vw;
+                        margin: 0;
+                        width: 96%;
+                        margin-left: 1.5vw;
+                        z-index: 3;
+                        position: relative;
+                        color: $White;
+                        font-weight: 800;
+                        font-size: 0.9vw;
+                        &::before{
+                            content: '';
+                            display: block;
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            background-color: $White;
+                            opacity: 0.3;
+                            width: 100%;
+                            height: 100%;
+                            border-bottom-right-radius: 1vw;
+                            border-bottom-left-radius: 1vw;
+                            z-index: -1;
+                        }
+                    }
+                }
+            }
+            h4{
+                color: $White;
+                font-family: 'Amatic SC', cursive;
+                font-weight: 700;
+                font-size: 3.6vw;
+                height: auto;
+                width: 25%;
+                text-align: center;
+                margin-top: 9vh;
+                position: relative;
+                z-index: 1;
+            }
+            span{
+                width: 75%;
+                text-align: center;
+                color: $White;
+                font-weight: 400;
+                font-size: 1.3vw;
+                line-height: 42px;
+                padding: 2vh;
+                margin-top: 2vh;
+                z-index: 1;
+                a{
+                    color: $White;
+                    font-weight: 900;
+                }
+            }
+        }
+    }
+    footer{
+        background: $BlackDark;
+        width: 100%;
+        height: 20vh;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: $White;
+        border-top: 3px solid $Red;
+        h4{
+            font-weight: 900;
+            font-size: 2vw;
+            padding: 1vh 0;
+        }
+        p{
+            font-weight: 400;
+            font-size: 0.8vw;
         }
     }
 }
 
 
+  
+
+  
+ 
 
 
 @media only screen and (min-width: 1200px) {}

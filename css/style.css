@@ -165,7 +165,7 @@ body .banner .txtBanner a:hover {
 }
 body .wrap {
   width: 100%;
-  height: 350vh;
+  height: 300vh;
   background: linear-gradient(180deg, #171227 0%, #221A3D 33.33%, #262F99 66.67%, #3E5DCE 100%);
 }
 body .wrap .backgrond {
@@ -366,13 +366,11 @@ body .wrap .projetos .items .item {
   transform: translate(-50%, -50%);
   width: 27vw;
   height: 35vh;
-  overflow: hidden;
   transition: all 300ms ease-in-out;
-  z-index: -1;
-  opacity: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1;
 }
 body .wrap .projetos .items .item a {
   display: flex;
@@ -421,22 +419,28 @@ body .wrap .projetos .items .button-container {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
+  height: 1vh;
   z-index: 100;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 10;
 }
 body .wrap .projetos .items .button-container .button {
   cursor: pointer;
   position: relative;
   transition: all 300ms ease-in-out;
   padding-right: 19vw;
-  height: 100%;
+  height: 20vh;
 }
 body .wrap .projetos .items .button-container .button svg {
+  margin-top: 50%;
   opacity: 0.75;
   width: 5vw;
   transform: rotate(90deg);
+}
+body .wrap .projetos .items .button-container .button svg path {
+  fill: #EDEDED;
 }
 body .wrap .projetos .items .button-container .button svg:hover {
   opacity: 1;
@@ -456,11 +460,11 @@ body .wrap .projetos .items .button-container .button:nth-child(2) svg {
 body .wrap .projetos button {
   color: #EDEDED;
   font-weight: 400;
-  font-size: 1vw;
+  font-size: 1.2vw;
   background-color: #3B3266;
   box-shadow: 0px 5px 5px rgba(19, 15, 32, 0.5);
   border-radius: 1vw;
-  padding: 1vh 1vw;
+  padding: 1.5vh 1.5vw;
   z-index: 1;
   border: 0;
   transition: all 0.3s ease-in-out;
@@ -472,12 +476,157 @@ body .wrap .projetos button:hover {
 body .wrap .duvidas {
   position: relative;
   width: 100%;
-  height: 150vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
-body .wrap .duvidas .img2 {
-  height: 50vh;
-  margin-top: 100vh;
-  transform: matrix(1, 0, 0, -1, 0, 0);
+body .wrap .duvidas h3 {
+  color: #EDEDED;
+  font-family: "Amatic SC", cursive;
+  font-weight: 700;
+  font-size: 3.6vw;
+  height: auto;
+  width: 25%;
+  text-align: center;
+  margin-top: 8vh;
+  position: relative;
+}
+body .wrap .duvidas h3::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 0.5vh;
+  position: absolute;
+  background: #EF5252;
+  transform: skew(-50deg);
+  top: 50%;
+  left: -100%;
+  opacity: 0.5;
+}
+body .wrap .duvidas h3::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 0.5vh;
+  position: absolute;
+  background: #EF5252;
+  transform: skew(-50deg);
+  top: 50%;
+  right: -100%;
+  opacity: 0.5;
+}
+body .wrap .duvidas .accordion {
+  width: 75%;
+  height: 38vh;
+  z-index: 1;
+  margin-top: 5vh;
+}
+body .wrap .duvidas .accordion .card {
+  padding: 1vw;
+  padding-bottom: 0;
+  background: none;
+  border: none;
+}
+body .wrap .duvidas .accordion .card button {
+  background: none;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 1vh 1.5vw;
+  border-radius: 2vw;
+  z-index: 2;
+  border: solid #BC2D2D 2px;
+  color: #EDEDED;
+  font-weight: 700;
+  min-height: 9vh;
+  font-size: 1.1vw;
+}
+body .wrap .duvidas .accordion .card button::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #EDEDED;
+  opacity: 0.15;
+  width: 100%;
+  height: 100%;
+  border-radius: 2vw;
+  z-index: -1;
+}
+body .wrap .duvidas .accordion .card p {
+  padding: 1vw;
+  margin: 0;
+  width: 96%;
+  margin-left: 1.5vw;
+  z-index: 3;
+  position: relative;
+  color: #EDEDED;
+  font-weight: 800;
+  font-size: 0.9vw;
+}
+body .wrap .duvidas .accordion .card p::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #EDEDED;
+  opacity: 0.3;
+  width: 100%;
+  height: 100%;
+  border-bottom-right-radius: 1vw;
+  border-bottom-left-radius: 1vw;
+  z-index: -1;
+}
+body .wrap .duvidas h4 {
+  color: #EDEDED;
+  font-family: "Amatic SC", cursive;
+  font-weight: 700;
+  font-size: 3.6vw;
+  height: auto;
+  width: 25%;
+  text-align: center;
+  margin-top: 9vh;
+  position: relative;
+  z-index: 1;
+}
+body .wrap .duvidas span {
+  width: 75%;
+  text-align: center;
+  color: #EDEDED;
+  font-weight: 400;
+  font-size: 1.3vw;
+  line-height: 42px;
+  padding: 2vh;
+  margin-top: 2vh;
+  z-index: 1;
+}
+body .wrap .duvidas span a {
+  color: #EDEDED;
+  font-weight: 900;
+}
+body footer {
+  background: #130F20;
+  width: 100%;
+  height: 20vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #EDEDED;
+  border-top: 3px solid #BC2D2D;
+}
+body footer h4 {
+  font-weight: 900;
+  font-size: 2vw;
+  padding: 1vh 0;
+}
+body footer p {
+  font-weight: 400;
+  font-size: 0.8vw;
 }
 
 /* Medium Device = 1200px */
