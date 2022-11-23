@@ -188,9 +188,10 @@ body .wrap .servicos {
   align-items: center;
 }
 body .wrap .servicos h3 {
-  font-family: "Amatic SC", cursive;
   color: #EDEDED;
-  font-size: 3.8vw;
+  font-family: "Amatic SC", cursive;
+  font-weight: 700;
+  font-size: 3.6vw;
   height: auto;
   width: 20%;
   text-align: center;
@@ -200,25 +201,25 @@ body .wrap .servicos h3 {
 body .wrap .servicos h3::before {
   content: "";
   display: block;
-  width: 140%;
+  width: 137.5%;
   height: 0.5vh;
   position: absolute;
   background: #EF5252;
   transform: skew(-50deg);
   top: 50%;
-  left: -140%;
+  left: -137.5%;
   opacity: 0.5;
 }
 body .wrap .servicos h3::after {
   content: "";
   display: block;
-  width: 140%;
+  width: 137.5%;
   height: 0.5vh;
   position: absolute;
   background: #EF5252;
   transform: skew(-50deg);
   top: 50%;
-  right: -140%;
+  right: -137.5%;
   opacity: 0.5;
 }
 body .wrap .servicos .cards {
@@ -296,9 +297,177 @@ body .wrap .projetos {
   width: 100%;
   height: 100vh;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
-body .wrap .projetos img {
+body .wrap .projetos .backgrond {
   transform: matrix(1, 0, 0, -1, 0, 0);
+}
+body .wrap .projetos h3 {
+  color: #EDEDED;
+  font-family: "Amatic SC", cursive;
+  font-weight: 700;
+  font-size: 3.6vw;
+  height: auto;
+  width: 30%;
+  text-align: center;
+  margin-top: 8vh;
+  position: relative;
+}
+body .wrap .projetos h3::before {
+  content: "";
+  display: block;
+  width: 76.5%;
+  height: 0.5vh;
+  position: absolute;
+  background: #EF5252;
+  transform: skew(-50deg);
+  top: 50%;
+  left: -76.5%;
+  opacity: 0.5;
+}
+body .wrap .projetos h3::after {
+  content: "";
+  display: block;
+  width: 76.5%;
+  height: 0.5vh;
+  position: absolute;
+  background: #EF5252;
+  transform: skew(-50deg);
+  top: 50%;
+  right: -76.5%;
+  opacity: 0.5;
+}
+body .wrap .projetos p {
+  width: 75%;
+  color: #EDEDED;
+  text-align: center;
+  font-weight: 400;
+  font-size: 1.25vw;
+  z-index: 1;
+  margin-top: 1vh;
+}
+body .wrap .projetos p a {
+  font-weight: 800;
+  color: #EDEDED;
+}
+body .wrap .projetos .items {
+  width: 75%;
+  height: 50vh;
+  margin-top: 5vh;
+  position: relative;
+}
+body .wrap .projetos .items .item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 27vw;
+  height: 35vh;
+  overflow: hidden;
+  transition: all 300ms ease-in-out;
+  z-index: -1;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body .wrap .projetos .items .item a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+body .wrap .projetos .items .item a img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 300ms ease-in-out;
+}
+body .wrap .projetos .items .active {
+  opacity: 1;
+  z-index: 99;
+}
+body .wrap .projetos .items .prev {
+  z-index: 2;
+  opacity: 0.5;
+  transform: translate(-125%, -50%);
+}
+body .wrap .projetos .items .prev a img {
+  width: 65%;
+  height: 65%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 300ms ease-in-out;
+}
+body .wrap .projetos .items .next {
+  z-index: 2;
+  opacity: 0.5;
+  transform: translate(25%, -50%);
+}
+body .wrap .projetos .items .next a img {
+  width: 65%;
+  height: 65%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 300ms ease-in-out;
+}
+body .wrap .projetos .items .button-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body .wrap .projetos .items .button-container .button {
+  cursor: pointer;
+  position: relative;
+  transition: all 300ms ease-in-out;
+  padding-right: 19vw;
+  height: 100%;
+}
+body .wrap .projetos .items .button-container .button svg {
+  opacity: 0.75;
+  width: 5vw;
+  transform: rotate(90deg);
+}
+body .wrap .projetos .items .button-container .button svg:hover {
+  opacity: 1;
+}
+body .wrap .projetos .items .button-container .button:nth-child(1) {
+  margin-right: auto;
+}
+body .wrap .projetos .items .button-container .button:nth-child(2) {
+  right: 0;
+  position: absolute;
+  padding-left: 19vw;
+  padding-right: 0;
+}
+body .wrap .projetos .items .button-container .button:nth-child(2) svg {
+  transform: rotate(-90deg);
+}
+body .wrap .projetos button {
+  color: #EDEDED;
+  font-weight: 400;
+  font-size: 1vw;
+  background-color: #3B3266;
+  box-shadow: 0px 5px 5px rgba(19, 15, 32, 0.5);
+  border-radius: 1vw;
+  padding: 1vh 1vw;
+  z-index: 1;
+  border: 0;
+  transition: all 0.3s ease-in-out;
+  margin-top: 2vh;
+}
+body .wrap .projetos button:hover {
+  transform: translateY(-1vh);
 }
 body .wrap .duvidas {
   position: relative;
