@@ -1,16 +1,16 @@
 @import 'compiler/colors_fonts';
-*, *::after, *::before{
+
+*, *::after, *::before {
     padding: 0;
     margin: 0;
     box-sizing: border-box !important;
     list-style: none;
     text-decoration: none !important;
 }
-h1,h2,h3,h4,h5,h6,p,span,a{
-    font-family: $main-font;
-}
-.hide{ display: none; }
 
+h1, h2, h3, h4, h5, h6, p, span, a {
+    font-family: $Main-font;
+}
 ::-webkit-scrollbar {
     width: 10px;
     background: $White;
@@ -18,88 +18,111 @@ h1,h2,h3,h4,h5,h6,p,span,a{
 ::-webkit-scrollbar-thumb {
     background: $Black;
 }
-@keyframes BTmenu { to { transform: scale(1.1); } }
+@keyframes BTmenu { to{ transform: scale(1.1);} }
 
-body{
+body {
     display: flex;
     flex-wrap: wrap;
-    .banner{
+    .toTop {
+        display: none;
+        position: fixed;
+        right: 1vw;
+        bottom: 1vh;
+        z-index: 998;
+        background: $BlueDark;
+        border-radius: 50%;
+        padding: 1vh;
+        cursor: pointer;
+        width: 3.5vw;
+        height: 7vh;
+        box-shadow: 0px 5px 5px rgba(19, 15, 32, 0.5);
+        svg {
+            width: 100%;
+            height: 100%;
+            transform: rotate(180deg);
+            path {
+                fill: $White;
+            }
+        }
+    }
+    header {
+        top: 0;
+        position: absolute;
+        height: 12vh;
+        width: 75%;
+        border-bottom: rgba(239, 82, 82, 0.5) solid 5px;
+        left: 12.5%;
+        z-index: 2;
+        ul {
+            display: flex;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            li {
+                padding: 1vh 1vw;
+                margin: 0 2vw;
+                a {
+                    color: $BlackDark;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    font-size: 1vw;
+                }
+                .BTmenu {
+                    display: inline-block;
+                    vertical-align: middle;
+                    transform: perspective(1px) translateZ(0);
+                    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+                    transition-property: color;
+                    transition-duration: 0.3s;
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        z-index: -1;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background: $Red;
+                        transform: scale(0);
+                        transition-property: transform;
+                        transition-duration: 0.4s;
+                        transition-timing-function: ease-out;
+                        border-radius: 2vw;
+                    }
+                    &:hover {
+                        color: $White;
+                        animation-name: BTmenu;
+                        animation-duration: 0.5s;
+                        animation-timing-function: linear;
+                        animation-iteration-count: infinite;
+                        animation-direction: alternate;
+                        &::before {
+                            transform: scale(1.3);
+                        }
+                    }
+                }
+            }
+            .logo {
+                padding: 1vh 2vw;
+                a {
+                    font-size: 1vw;
+                    font-weight: 900 !important;
+                }
+            }
+        }
+    }
+    .banner {
         width: 100%;
         height: 100vh;
         display: flex;
         background: radial-gradient(27.14% 84.67% at 24.51% 46.06%, $WhiteLight 0%, $WhiteDark 100%);
         overflow: hidden;
         align-items: center;
-        header{
-            top: 0;
-            position: absolute;
-            height: 12vh;
-            width: 75%;
-            border-bottom:rgba(239, 82, 82, 0.5) solid 5px;
-            left: 12.5%;
-            ul{
-                display: flex;
-                height: 100%;
-                justify-content: center;
-                align-items: center;
-                li{
-                    padding: 1vh 1vw;
-                    margin: 0 2vw;
-                    a{
-                        color:$BlackDark;
-                        font-weight: 600;
-                        text-transform: uppercase;
-                        font-size: 1vw;
-                    }
-                    .BTmenu{
-                        display: inline-block;
-                        vertical-align: middle;
-                        transform: perspective(1px) translateZ(0);
-                        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-                        transition-property: color;
-                        transition-duration: 0.3s;
-                        &::before{
-                            content: "";
-                            position: absolute;
-                            z-index: -1;
-                            top: 0;
-                            left: 0;
-                            right: 0;
-                            bottom: 0;
-                            background: $Red;
-                            transform: scale(0);
-                            transition-property: transform;
-                            transition-duration: 0.4s;
-                            transition-timing-function: ease-out;
-                            border-radius: 2vw;
-                        }
-                        &:hover{
-                            color: $White;
-                            animation-name: BTmenu;
-                            animation-duration: 0.5s;
-                            animation-timing-function: linear;
-                            animation-iteration-count: infinite;
-                            animation-direction: alternate;
-                            &::before{
-                                transform: scale(1.3);
-                            }
-                        }
-                    }
-                }
-                .logo{
-                    padding: 1vh 2vw;
-                    a{
-                        font-size: 1vw;  
-                        font-weight: 900 !important;
-                    }
-                }
-            }
-        }
-        img{
+        img {
             height: 75%;
             margin: auto 0 -1vh 15vw;
         }
-        .txtBanner{
+        .txtBanner {
             margin-left: auto;
             margin-right: 12vw;
             width: 35vw;
@@ -107,19 +130,19 @@ body{
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            h1{
+            h1 {
                 font-weight: 900;
                 width: 75%;
                 font-size: 3vw;
                 color: $BlackDark;
             }
-            h2{
+            h2 {
                 color: $BlackDark;
                 width: 100%;
                 font-size: 1.4vw;
                 font-weight: 500;
             }
-            a{
+            a {
                 margin: 3vh 0 0 2vw;
                 padding: 1vh 1.2vw;
                 border-radius: 1vw;
@@ -128,22 +151,22 @@ body{
                 background-color: $BlueLight;
                 font-weight: 400;
                 transition: 0.5s ease-in-out;
-                &:first-of-type{
+                &:first-of-type {
                     margin-left: auto;
                     background-color: $RedLight;
                 }
-                &:hover{
+                &:hover {
                     box-shadow: 0px 5px 10px rgba(19, 15, 32, 0.5);
                     transform: translateY(-0.3vw);
                 }
             }
         }
     }
-    .wrap{
+    .wrap {
         width: 100%;
         height: 300vh;
         background: linear-gradient(180deg, #171227 0%, #221A3D 33.33%, #262F99 66.67%, #3E5DCE 100%);
-        .backgrond{
+        .backgrond {
             mix-blend-mode: color-dodge;
             opacity: 0.25;
             position: absolute;
@@ -153,7 +176,7 @@ body{
             width: 100%;
             height: 100vh;
         }
-        .servicos{
+        .servicos {
             width: 100%;
             height: 100vh;
             position: relative;
@@ -161,9 +184,9 @@ body{
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
-            h3{
+            h3 {
                 color: $White;
-                font-family: 'Amatic SC', cursive;
+                font-family: $Title-font;
                 font-weight: 700;
                 font-size: 3.6vw;
                 height: auto;
@@ -171,7 +194,7 @@ body{
                 text-align: center;
                 margin-top: 8vh;
                 position: relative;
-                &::before{
+                &::before {
                     content: '';
                     display: block;
                     width: 137.5%;
@@ -179,11 +202,11 @@ body{
                     position: absolute;
                     background: $RedLight;
                     transform: skew(-50deg);
-                    top: 50%; 
+                    top: 50%;
                     left: -137.5%;
                     opacity: 0.5;
                 }
-                &::after{
+                &::after {
                     content: '';
                     display: block;
                     width: 137.5%;
@@ -191,19 +214,19 @@ body{
                     position: absolute;
                     background: $RedLight;
                     transform: skew(-50deg);
-                    top: 50%; 
+                    top: 50%;
                     right: -137.5%;
                     opacity: 0.5;
                 }
             }
-            .cards{
+            .cards {
                 color: $White;
                 display: flex;
                 margin-top: 5vh;
                 padding: 2vw;
                 width: 75%;
                 justify-content: space-evenly;
-                .card{
+                .card {
                     background: $Blue;
                     border-radius: 1vw;
                     z-index: 1;
@@ -218,10 +241,10 @@ body{
                     box-shadow: 0px 0px 25px rgba(12, 9, 20, 0.75);
                     color: $White;
                     transition: 0.3s ease-in-out;
-                    &:hover{
+                    &:hover {
                         transform: translateY(-1vh);
                     }
-                    .imgBack{
+                    .imgBack {
                         position: absolute;
                         top: 0;
                         left: 0;
@@ -231,24 +254,24 @@ body{
                         opacity: 0.5;
                         border-radius: 1vw;
                     }
-                    svg{
+                    svg {
                         position: absolute;
                         width: 25%;
                         height: auto;
                         top: 10;
                     }
-                    h4{
+                    h4 {
                         font-size: 2.5vw;
                         font-weight: 700;
                         margin-top: 2vh;
                     }
-                    p{
+                    p {
                         font-weight: 700;
                         font-size: 1.5vw;
                         width: 80%;
                         margin-top: 7vh;
                     }
-                    span{
+                    span {
                         padding: 1vh 1.2vw;
                         margin-top: 7vh;
                         color: $White;
@@ -260,13 +283,17 @@ body{
                         border: none;
                     }
                 }
-                .web{
-                    svg{ width: 30%;}
-                    p{ width: 90%;}
+                .web {
+                    svg {
+                        width: 30%;
+                    }
+                    p {
+                        width: 90%;
+                    }
                 }
             }
         }
-        .projetos{
+        .projetos {
             width: 100%;
             height: 100vh;
             position: relative;
@@ -274,12 +301,12 @@ body{
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
-            .backgrond{
+            .backgrond {
                 transform: matrix(1, 0, 0, -1, 0, 0);
             }
-            h3{
+            h3 {
                 color: $White;
-                font-family: 'Amatic SC', cursive;
+                font-family: $Title-font;
                 font-weight: 700;
                 font-size: 3.6vw;
                 height: auto;
@@ -287,7 +314,7 @@ body{
                 text-align: center;
                 margin-top: 8vh;
                 position: relative;
-                &::before{
+                &::before {
                     content: '';
                     display: block;
                     width: 76.5%;
@@ -295,11 +322,11 @@ body{
                     position: absolute;
                     background: $RedLight;
                     transform: skew(-50deg);
-                    top: 50%; 
+                    top: 50%;
                     left: -76.5%;
                     opacity: 0.5;
                 }
-                &::after{
+                &::after {
                     content: '';
                     display: block;
                     width: 76.5%;
@@ -307,12 +334,12 @@ body{
                     position: absolute;
                     background: $RedLight;
                     transform: skew(-50deg);
-                    top: 50%; 
+                    top: 50%;
                     right: -76.5%;
                     opacity: 0.5;
                 }
             }
-            p{
+            p {
                 width: 75%;
                 color: $White;
                 text-align: center;
@@ -320,7 +347,7 @@ body{
                 font-size: 1.25vw;
                 z-index: 1;
                 margin-top: 1vh;
-                a{
+                a {
                     font-weight: 800;
                     color: $White;
                 }
@@ -342,7 +369,7 @@ body{
                     align-items: center;
                     justify-content: center;
                     z-index: 1;
-                    a{
+                    a {
                         display: flex;
                         align-items: center;
                         justify-content: center;
@@ -363,7 +390,7 @@ body{
                     z-index: 2;
                     opacity: 0.5;
                     transform: translate(-125%, -50%);
-                    a{
+                    a {
                         img {
                             width: 65%;
                             height: 65%;
@@ -371,13 +398,12 @@ body{
                             transition: all 300ms ease-in-out;
                         }
                     }
-                    
                 }
                 .next {
                     z-index: 2;
                     opacity: 0.5;
                     transform: translate(25%, -50%);
-                    a{
+                    a {
                         img {
                             width: 65%;
                             height: 65%;
@@ -398,40 +424,40 @@ body{
                     align-items: center;
                     justify-content: center;
                     z-index: 10;
-                    .button {
+                    .btnSlide {
                         cursor: pointer;
                         position: relative;
                         transition: all 300ms ease-in-out;
                         padding-right: 19vw;
                         height: 20vh;
-                        svg{
+                        svg {
                             margin-top: 50%;
                             opacity: 0.75;
                             width: 5vw;
                             transform: rotate(90deg);
-                            path{
+                            path {
                                 fill: $White;
                             }
-                            &:hover{
+                            &:hover {
                                 opacity: 1;
                             }
                         }
-                        &:nth-child(1){
+                        &:nth-child(1) {
                             margin-right: auto;
                         }
-                        &:nth-child(2){
+                        &:nth-child(2) {
                             right: 0;
                             position: absolute;
                             padding-left: 19vw;
                             padding-right: 0;
-                            svg{
+                            svg {
                                 transform: rotate(-90deg);
                             }
                         }
                     }
                 }
             }
-            button{
+            button {
                 color: $White;
                 font-weight: 400;
                 font-size: 1.2vw;
@@ -443,12 +469,12 @@ body{
                 border: 0;
                 transition: all 0.3s ease-in-out;
                 margin-top: 2vh;
-                &:hover{
+                &:hover {
                     transform: translateY(-1vh);
                 }
             }
         }
-        .duvidas{
+        .duvidas {
             position: relative;
             width: 100%;
             height: 100vh;
@@ -456,9 +482,9 @@ body{
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
-            h3{
+            h3 {
                 color: $White;
-                font-family: 'Amatic SC', cursive;
+                font-family: $Title-font;
                 font-weight: 700;
                 font-size: 3.6vw;
                 height: auto;
@@ -466,7 +492,7 @@ body{
                 text-align: center;
                 margin-top: 8vh;
                 position: relative;
-                &::before{
+                &::before {
                     content: '';
                     display: block;
                     width: 100%;
@@ -474,11 +500,11 @@ body{
                     position: absolute;
                     background: $RedLight;
                     transform: skew(-50deg);
-                    top: 50%; 
+                    top: 50%;
                     left: -100%;
                     opacity: 0.5;
                 }
-                &::after{
+                &::after {
                     content: '';
                     display: block;
                     width: 100%;
@@ -486,23 +512,23 @@ body{
                     position: absolute;
                     background: $RedLight;
                     transform: skew(-50deg);
-                    top: 50%; 
+                    top: 50%;
                     right: -100%;
                     opacity: 0.5;
                 }
             }
-            .accordion{
+            .accordion {
                 width: 75%;
                 height: 38vh;
                 z-index: 1;
                 margin-top: 5vh;
-                .card{
+                .card {
                     padding: 1vw;
                     padding-bottom: 0;
                     background: none;
                     border: none;
-                    button{
-                        background:none;
+                    button {
+                        background: none;
                         position: relative;
                         display: flex;
                         align-items: center;
@@ -514,7 +540,7 @@ body{
                         font-weight: 700;
                         min-height: 9vh;
                         font-size: 1.1vw;
-                        &::before{
+                        &::before {
                             content: '';
                             display: block;
                             position: absolute;
@@ -528,7 +554,7 @@ body{
                             z-index: -1;
                         }
                     }
-                    p{
+                    p {
                         padding: 1vw;
                         margin: 0;
                         width: 96%;
@@ -538,7 +564,7 @@ body{
                         color: $White;
                         font-weight: 800;
                         font-size: 0.9vw;
-                        &::before{
+                        &::before {
                             content: '';
                             display: block;
                             position: absolute;
@@ -555,9 +581,9 @@ body{
                     }
                 }
             }
-            h4{
+            h4 {
                 color: $White;
-                font-family: 'Amatic SC', cursive;
+                font-family: $Title-font;
                 font-weight: 700;
                 font-size: 3.6vw;
                 height: auto;
@@ -567,24 +593,24 @@ body{
                 position: relative;
                 z-index: 1;
             }
-            span{
+            span {
                 width: 75%;
                 text-align: center;
                 color: $White;
                 font-weight: 400;
                 font-size: 1.3vw;
-                line-height: 42px;
+                line-height: 4vh;
                 padding: 2vh;
-                margin-top: 2vh;
+                margin-top: 1.5vh;
                 z-index: 1;
-                a{
+                a {
                     color: $White;
                     font-weight: 900;
                 }
             }
         }
     }
-    footer{
+    footer {
         background: $BlackDark;
         width: 100%;
         height: 20vh;
@@ -594,23 +620,19 @@ body{
         justify-content: center;
         color: $White;
         border-top: 3px solid $Red;
-        h4{
+        h4 {
             font-weight: 900;
             font-size: 2vw;
             padding: 1vh 0;
         }
-        p{
+        p {
             font-weight: 400;
             font-size: 0.8vw;
         }
     }
 }
 
-
-  
-
-  
- 
+@import 'compiler/contato';
 
 
 @media only screen and (min-width: 1200px) {}
